@@ -24,12 +24,9 @@ class UserController extends Controller
             return response()->json($response);
         }
 
-        $user = new User();
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $isSaved = $user->save();
+        $newUserId = User::createUser($request);
 
-        if($isSaved === false) {
+        if(($newUserId > 0) === false) {
             $response = [
                 'status' => false,
                 'message' => 'Error: Failed when trying to create user.'
@@ -37,11 +34,9 @@ class UserController extends Controller
             return response()->json($response);
         }
 
-        $userId = $user->id;
-
         $response = [
             'status' => true,
-            'message' => 'Success: User with id '.$userId.' was created.',
+            'message' => 'Success: User with id '.$newUserId.' was created.',
         ];
         return response()->json($response);
     }
