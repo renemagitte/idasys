@@ -28,9 +28,9 @@ class Controller extends BaseController
         return response()->json($response);
     }
 
-    protected function login()
-    {
-        return response()->json("login response!");
-    }
+    // protected function login()
+    // {
+    //     return response()->json("login response!");
+    // }
 
 }
