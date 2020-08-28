@@ -22,8 +22,26 @@ class Garment extends Model
     protected $fillable = [
         'id', 'type_of_garment', 'status', 'storage', 'brand', 'purchase_year',
         'title', 'description', 'material', 'condition', 'size', 'measurements',
-        'retail_price', 'my_price', 'my_profit', 'my_sell_date'
+        'retail_price', 'my_price', 'my_profit', 'my_sell_date', 'updated_at', 'created_at'
     ];
+
+    public static function importGarmentRow($row)
+    {
+
+        // return $row->typ_av_plagg;
+
+        $garment = new Garment();
+
+        $garment->fill([
+            "type_of_garment" => $row->typ_av_plagg
+        ]);
+
+        $garment->save();
+
+        // $garment->type_of_garment = $row->typ_av_plagg;
+        // $garment->save();
+        // $garment = $garment->id;
+    }
 
 
 }

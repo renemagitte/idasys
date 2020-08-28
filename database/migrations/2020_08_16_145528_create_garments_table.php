@@ -30,7 +30,9 @@ class CreateGarmentsTable extends Migration
             $table->int('my_price')->nullable();
             $table->int('my_profit')->nullable();
             $table->date('my_sell_date')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            // $table->timestamps();
         });
     }
 
