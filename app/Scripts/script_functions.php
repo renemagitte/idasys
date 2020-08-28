@@ -5,9 +5,13 @@ use App\User;
 use App\Garment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 use App\Imports\GarmentsImport;
 use Maatwebsite\Excel\Facades\Excel;
+
+use Illuminate\Support\Facades\Auth;
 
 /*
  * A collection of functions, to be used with console command "Scriptfunction".
@@ -57,10 +61,33 @@ function fillGarmentsFromCsv() {
 function fillGarmentsFromExcel() { // php artisan scriptfunc fillGarmentsFromExcel
     // $data = Storage::get('storage/app/garments_csv.csv');
 
-    $file = public_path('file/garments_xlsx.xlsx');
-    Excel::import(new GarmentsImport, $file);
+    // $file = public_path('file/garments_xlsx.xlsx');
+    // $test = Excel::import(new GarmentsImport, $file);
 
-    print_r($file);
+    print_r("jaha");
+    // print_r($test);
+
+
+//     $request = new stdClass();
+//    $request->email = 'ida@hmmm.se';
+//    $request->password = 'hej';
+//    $request->name = 'jåå';
+
+
+//     $newUserId = User::createUser($request);
+//     $newPage->fill([
+//         'published_at' => $article->created_at,
+//     ]);
+//     $newPage->save();
+
+    $idaUser = User::find(14);
+
+    $idaUser->fill([
+        'name' => "Nytt namn!",
+    ]);
+    $idaUser->save();
+
+    print_r($idaUser);
  }
 
 

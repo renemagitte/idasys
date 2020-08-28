@@ -25,4 +25,5 @@ class Garment extends Model
         'retail_price', 'my_price', 'my_profit', 'my_sell_date'
     ];
 
+
 }

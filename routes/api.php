@@ -24,3 +24,6 @@ Route::post('/login', 'Auth\LoginController@login');
 
 Route::post('/signup', 'UserController@createUser');
 
+Route::get('/garments', 'GarmentController@getGarments');
+
+
