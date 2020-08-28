@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class GarmentController extends Controller
 {
-
     public static function getGarments()
     {
-        $garments = DB::table('garments_test')->get();
+        $garments = DB::table('garments')->get();
         $response = [
             'status' => true,
             'message' => 'Success: Returning garments.',
@@ -27,20 +26,10 @@ class GarmentController extends Controller
             $data = \Excel::load($path)->get();
             if($data->count()){
 
-                foreach ($data as $key => $value) {
+                // $data[0] because need sheet 1 in excel file
+                foreach ($data[0] as $key => $value) {
 
-                    // Garment::importGarmentRow($value[0]);
-
-                    $test = Garment::importGarmentRow($value[0]);
-
-                    return $test;
-                    // return;
-
-
-
-                //     $arr[] = ['name' => $value->name, 'details' => $value->details];
-                // }
-                // return "verkar funka?";
+                    Garment::importGarmentRow($value);
 
                 // if(!empty($arr)){
                 //     \DB::table('products')->insert($arr);
