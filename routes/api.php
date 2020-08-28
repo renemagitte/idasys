@@ -26,4 +26,6 @@ Route::post('/signup', 'UserController@createUser');
 
 Route::get('/garments', 'GarmentController@getGarments');
 
+Route::post('/importGarmentsFromExcel', 'GarmentController@importGarmentsFromExcel');
+
 
