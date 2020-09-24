@@ -15,17 +15,18 @@ class Controller extends BaseController
 
     protected function testFn()
     {
-        $data = DB::table('users')
-        ->where('user_name', 'ida')
-        ->get();
+        return response()->json(['response' => "Test?!"]);
+        // $data = DB::table('users')
+        // ->where('user_name', 'ida')
+        // ->get();
 
-        $response = [
-            'test' => $data,
-            'status' => true,
-            'message' => 'Success: Returns data'
-        ];
+        // $response = [
+        //     'test' => $data,
+        //     'status' => true,
+        //     'message' => 'Success: Returns data'
+        // ];
 
-        return response()->json($response);
+        // return response()->json($response);
     }
 
     // protected function login()
